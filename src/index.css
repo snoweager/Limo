@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Luxury Dark Theme */
+    --background: 0 0% 4%;
+    --foreground: 40 20% 95%;
+
+    --card: 0 0% 7%;
+    --card-foreground: 40 20% 95%;
+
+    --popover: 0 0% 7%;
+    --popover-foreground: 40 20% 95%;
+
+    /* Champagne Gold */
+    --primary: 38 55% 55%;
+    --primary-foreground: 0 0% 4%;
+
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 40 20% 95%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 60%;
+
+    --accent: 38 55% 55%;
+    --accent-foreground: 0 0% 4%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 0 0% 18%;
+    --input: 0 0% 15%;
+    --ring: 38 55% 55%;
+
+    --radius: 0.5rem;
+
+    /* Custom Luxury Variables */
+    --gold: 38 55% 55%;
+    --gold-light: 38 60% 70%;
+    --gold-dark: 38 50% 40%;
+    --charcoal: 0 0% 8%;
+    --charcoal-light: 0 0% 12%;
+    --cream: 40 20% 95%;
+    --cream-muted: 40 10% 75%;
+
+    /* Gradients */
+    --gradient-gold: linear-gradient(135deg, hsl(38, 55%, 55%), hsl(38, 60%, 70%));
+    --gradient-dark: linear-gradient(180deg, hsl(0, 0%, 4%) 0%, hsl(0, 0%, 8%) 100%);
+    --gradient-hero-overlay: linear-gradient(135deg, hsla(0, 0%, 0%, 0.85) 0%, hsla(0, 0%, 0%, 0.6) 50%, hsla(0, 0%, 0%, 0.75) 100%);
+
+    /* Shadows */
+    --shadow-gold: 0 4px 30px -5px hsla(38, 55%, 55%, 0.3);
+    --shadow-card: 0 10px 40px -10px hsla(0, 0%, 0%, 0.5);
+
+    /* Fonts */
+    --font-display: 'Cormorant Garamond', serif;
+    --font-body: 'Inter', sans-serif;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+}
+
+@layer components {
+  .text-gradient-gold {
+    background: linear-gradient(135deg, hsl(38, 55%, 55%), hsl(38, 60%, 70%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .btn-gold {
+    @apply bg-primary text-primary-foreground font-semibold tracking-wide;
+    @apply transition-all duration-300 ease-out;
+    @apply hover:shadow-[0_4px_30px_-5px_hsla(38,55%,55%,0.4)];
+    @apply hover:scale-[1.02];
+  }
+
+  .btn-gold-outline {
+    @apply border-2 border-primary text-primary bg-transparent;
+    @apply transition-all duration-300 ease-out;
+    @apply hover:bg-primary hover:text-primary-foreground;
+  }
+
+  .input-luxury {
+    @apply bg-secondary/50 border border-border text-foreground;
+    @apply placeholder:text-muted-foreground/60;
+    @apply focus:border-primary focus:ring-1 focus:ring-primary/30;
+    @apply transition-all duration-200;
+  }
+
+  .card-luxury {
+    @apply bg-card/80 backdrop-blur-xl border border-border/50;
+    box-shadow: var(--shadow-card);
+  }
+}
+
+@layer utilities {
+  .animate-fade-up {
+    animation: fadeUp 0.8s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  .animate-delay-100 { animation-delay: 100ms; }
+  .animate-delay-200 { animation-delay: 200ms; }
+  .animate-delay-300 { animation-delay: 300ms; }
+  .animate-delay-400 { animation-delay: 400ms; }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-body {
+    font-family: var(--font-body);
+  }
+}
